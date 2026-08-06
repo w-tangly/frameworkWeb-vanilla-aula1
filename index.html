@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Minado Neo-Retro | Experimento Pedagógico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <h1>Campo Minado <span class="neon-text">Neo-Retro</span></h1>
+            <p class="subtitle">Um projeto pedagógico desenvolvido com Vanilla JS e IA</p>
+        </header>
+
+        <!-- Painel de Controles Superiores -->
+        <section class="control-panel">
+            <div class="control-group">
+                <label for="difficulty-select">Dificuldade</label>
+                <select id="difficulty-select">
+                    <option value="easy">Fácil (9x9, 10 minas)</option>
+                    <option value="medium" selected>Médio (16x16, 40 minas)</option>
+                    <option value="hard">Difícil (30x16, 99 minas)</option>
+                    <option value="custom">Personalizado...</option>
+                </select>
+            </div>
+
+            <!-- Formulário para dificuldade personalizada -->
+            <div id="custom-settings" class="custom-settings-form hidden">
+                <div class="input-inline">
+                    <input type="number" id="custom-cols" min="5" max="50" placeholder="Cols">
+                    <span>x</span>
+                    <input type="number" id="custom-rows" min="5" max="30" placeholder="Linhas">
+                    <span>Minas:</span>
+                    <input type="number" id="custom-mines" min="1" max="1000" placeholder="Minas">
+                    <button id="apply-custom-btn">Aplicar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Painel de Status (Estilo Placar de Fliperama / Synthwave) -->
+        <section class="status-panel">
+            <div class="status-box">
+                <span class="label">MINAS</span>
+                <span id="mines-counter" class="mono-display">040</span>
+            </div>
+            
+            <button id="reset-button" class="smiley-btn" aria-label="Reiniciar jogo">🙂</button>
+            
+            <div class="status-box">
+                <span class="label">TEMPO</span>
+                <span id="timer" class="mono-display">000</span>
+            </div>
+        </section>
+
+        <!-- Controles Móveis (Modo Bandeira) -->
+        <section class="mobile-controls">
+            <button id="flag-toggle-btn" class="toggle-btn" title="Alternar entre revelar e colocar bandeira">
+                <span class="icon">⛏️</span> Revelar Modo
+            </button>
+            <span class="hint">Dica: No PC, clique com o botão direito para marcar com bandeira 🚩</span>
+        </section>
+
+        <!-- Área do Tabuleiro -->
+        <main class="board-wrapper">
+            <div id="minesweeper-board" class="board"></div>
+        </main>
+
+        <!-- Modal de Fim de Jogo ou Informações -->
+        <div id="game-overlay" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 id="overlay-title">Fim de Jogo</h2>
+                <p id="overlay-message">Você acertou uma mina!</p>
+                <button id="overlay-btn">Jogar Novamente</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Criado com fins pedagógicos para exemplificar manipulação de DOM e lógica em JavaScript puro.</p>
+            <p><a href="README.md" target="_blank" class="readme-link">Ver documentação do projeto (README.md)</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
